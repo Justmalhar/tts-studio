@@ -18,7 +18,7 @@ TTS Studio is a modern web application that converts text into natural-sounding 
 - 🎛️ **Customization**: Adjust speech speed and other parameters
 - 📱 **Responsive Design**: Works seamlessly on desktop and mobile devices
 
-## 🚀 Deploy
+## 🚀 1-Click Deploy
 
 Deploy **🎙️ TTS Studio** with a single click using Vercel's powerful and scalable environment.
 
