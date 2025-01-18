@@ -105,7 +105,15 @@ export default function ElevenLabsProvider() {
     >
       <div className="mb-8 mt-4 flex items-start gap-4">
         <div className="h-16 w-16 rounded-lg p-2">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 876 876" className="w-full h-full" fill="black" title="ElevenLabs Logo">
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 876 876" 
+            className="w-full h-full" 
+            fill="black" 
+            role="img"
+            aria-labelledby="elevenlabs-title"
+          >
+            <title id="elevenlabs-title">ElevenLabs Logo</title>
             <path d="M468 292H528V584H468V292Z"/>
             <path d="M348 292H408V584H348V292Z"/>
           </svg>

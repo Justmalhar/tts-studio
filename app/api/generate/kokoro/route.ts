@@ -1,5 +1,5 @@
-import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 import Replicate from "replicate";
 
 const replicate = new Replicate({
@@ -8,7 +8,7 @@ const replicate = new Replicate({
 
 export async function POST(request: NextRequest) {
   try {
-    const { text, speed, voice } = await request.json();
+    const { text, voice, speed } = await request.json();
 
     if (!text) {
       return NextResponse.json(
@@ -17,25 +17,33 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    if (!voice) {
+      return NextResponse.json(
+        { error: "Voice ID is required" },
+        { status: 400 }
+      );
+    }
+
+    // Run the Kokoro model with the correct version and input format
     const output = await replicate.run(
       "jaaari/kokoro-82m:dfdf537ba482b029e0a761699e6f55e9162cfd159270bfe0e44857caa5f275a6",
       {
         input: {
-          text,
-          speed,
-          voice,
-        },
+          text: text,
+          speed: speed || 1,
+          voice: voice
+        }
       }
-    );
+    ) as ReadableStream<Uint8Array>;
 
-    // Fetch the audio file from the Replicate URL
-    const audioResponse = await fetch(output as string);
-    const audioBuffer = await audioResponse.arrayBuffer();
+    // Create a Response from the ReadableStream
+    const response = new Response(output);
+    const audioBuffer = await response.arrayBuffer();
 
     return new NextResponse(audioBuffer, {
       headers: {
         "Content-Type": "audio/wav",
-        "Content-Disposition": 'attachment; filename="generated-audio.wav"',
+        "Content-Length": audioBuffer.byteLength.toString(),
       },
     });
   } catch (error) {
