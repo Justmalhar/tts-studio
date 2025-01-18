@@ -4,13 +4,19 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1c1e21;
+  --facebook-blue: #1877f2;
+  --facebook-hover: #166fe5;
+  --gray-hover: #f0f2f5;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #18191a;
+    --foreground: #f5f6f7;
+    --facebook-blue: #1877f2;
+    --facebook-hover: #166fe5;
+    --gray-hover: #3a3b3c;
   }
 }
 

@@ -11,6 +11,9 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        "facebook-blue": "var(--facebook-blue)",
+        "facebook-hover": "var(--facebook-hover)",
+        "gray-hover": "var(--gray-hover)",
       },
     },
   },
