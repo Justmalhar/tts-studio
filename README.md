@@ -1,4 +1,4 @@
-# 🎙️ TTS Studio
+# 🎙️ TTS Studio - Text to Speech Studio
 
 > 🔊 Transform text into natural speech with multiple AI providers of your choice - Replicate, OpenAI, ElevenLabs
 
